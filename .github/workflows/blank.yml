@@ -49,6 +49,7 @@ jobs:
       - name: Install schemachange
         run: |
           echo "Step 1: Installing schemachange"
+          pip install snowflake-connector-python
           pip install schemachange==3.7.0
 
       # Run schemachange
