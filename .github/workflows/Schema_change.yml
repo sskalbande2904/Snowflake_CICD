@@ -16,6 +16,14 @@ jobs:
   deploy-snowflake-changes-job:
     runs-on: ubuntu-latest
 
+    env:
+      SF_ACCOUNT: your_snowflake_account
+      SF_USERNAME: your_snowflake_username
+      SF_ROLE: your_snowflake_role
+      SF_WAREHOUSE: your_snowflake_warehouse
+      SF_DATABASE: your_snowflake_database
+      SNOWFLAKE_PASSWORD: your_snowflake_password
+
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repository
@@ -27,18 +35,11 @@ jobs:
           python-version: 3.8.x
 
       - name: Run schemachange
-        env:
-          SF_ACCOUNT: ${{ secrets.SF_ACCOUNT }}
-          SF_USERNAME: ${{ secrets.SF_USERNAME }}
-          SF_ROLE: ${{ secrets.SF_ROLE }}
-          SF_WAREHOUSE: ${{ secrets.SF_WAREHOUSE }}
-          SF_DATABASE: ${{ secrets.SF_DATABASE }}
-          SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           python --version
           echo "Step 1: Installing schemachange"
           pip install schemachange
          
-          echo "Step 2: Running schemachange"
+ "Step 2: Running schemachange"
           schemachange -f $GITHUB_WORKSPACE/Migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
