@@ -1,4 +1,4 @@
-CREATE or replace TABLE  {{SF_DATABASE}}.prod_raw_schema.AUDIT_LOG (
+CREATE or replace TABLE {{SF_DATABASE}}.prod_raw_schema.AUDIT_LOG (
     ID INT autoincrement start 1 increment 1,
     TABLE_NAME VARCHAR(50) ,
     ROW_COUNT VARCHAR(50) ,
