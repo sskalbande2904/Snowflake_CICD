@@ -49,7 +49,7 @@ jobs:
       - name: Install schemachange
         run: |
           echo "Step 1: Installing schemachange"
-          pip install schemachange
+          pip install schemachange==3.7.0
 
       # Run schemachange
       - name: Run schemachange
