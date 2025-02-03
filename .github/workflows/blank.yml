@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      SF_ACCOUNT: $YOUR_SNOWFLAKE_ACCOUNT
+      SF_ACCOUNT: ${{YOUR_SNOWFLAKE_ACCOUNT}}
       SF_USERNAME: your_snowflake_username
       SF_ROLE: your_snowflake_role
       SF_WAREHOUSE: your_snowflake_warehouse
